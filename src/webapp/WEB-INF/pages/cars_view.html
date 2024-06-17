@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title> Cars </title>
+</head>
+<body>
+
+<br><br>
+
+<table>
+        <tr>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Color</th>
+        </tr>
+        <tr th:each="car : ${cars}">
+                <td th:text="${car.getModel()}">Car model</td>
+                <td th:text="${car.getYear()}">Car year</td>
+                <td th:text="${car.getColor()}">Car color</td>
+        </tr>
+
+</table>
+
+
+</body>
+</html>

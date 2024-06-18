@@ -10,39 +10,21 @@ import java.util.stream.Collectors;
 @Service
 public class CarServiceImpl implements CarService {
     private List<Car> cars = new ArrayList<>();
-//    Car car1 = new Car("BMW", 1995, "Red");
-//    Car car2 = new Car("Audi", 2016, "Grey");
-//    Car car3 = new Car("Hyundai", 1990, "Blue");
-//    Car car4 = new Car("Mercedes", 2009, "Green");
-//    Car car5 = new Car("Moskvich", 2012, "Blue");
 
     public CarServiceImpl() {
+        cars.add(new Car("BMW", 1995, "Red"));
+        cars.add(new Car("Audi", 2016, "Grey"));
+        cars.add(new Car("Hyundai", 1990, "Blue"));
+        cars.add(new Car("Mercedes", 2009, "Green"));
+        cars.add(new Car("Moskvich", 2012, "Blue"));
 
     }
 
     @Override
-    public Car getCar(int id) {
-        if (cars.size() > 0) {
-            return cars.get(id);
-        } else {
-            return null;
+    public List<Car> getCarsByCount(int count) {
+        if(count < cars.size() && count > 0) {
+            return cars.stream().limit(count).collect(Collectors.toList());
         }
-    }
-
-    @Override
-    public List<Car> getAllCars() {
         return cars;
     }
-
-    @Override
-    public void saveCar(Car car) {
-        cars.add(car);
-    }
-
-    @Override
-    public void deleteCar(int id) {
-        cars.remove(id);
-    }
-
-
 }
